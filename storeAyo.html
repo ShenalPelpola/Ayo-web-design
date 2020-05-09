@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <script src="javascript/store.js" async></script>
+    </head>
+    <body>
+        <header class="main-header clearfix" id="main-header">
+            <div class="top">
+                    <img id="logo" src="img/logo.png">
+                    <form class="search">
+                            <input type="text" name="search" placeholder="Search.." id="searchBox"> 
+                    </form>
+            </div>
+            <div class="container" id="container">
+                    <ul class="main-nav">
+                        <li><a href="index.html" id="home"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                        <li><a href="main.html#about"><i class="fa fa-user" style="padding-right: 7px"></i>About</a></li>
+                        <li><a href="storeAyo.html"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Products</a></li>
+                        <li><a href="support.html"><i class="fa fa-fw fa-envelope" style="padding-right: 7px"></i>Support</a></li>
+                        <li><a href="gallery.html"><i class="fa fa-image" style="padding-right: 7px"></i>Gallary</a></li>
+                        <li><a href="Quiz.html"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Quiz</a></li>
+                        <div class="dropdown">
+                            <button class="dropbtn" id="dev"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Developers</button>
+                                <div class="dropdown-content">
+                                    <a href="jayamalcv.html"><img src="img/AwesomeMe.jpg" class="developer-images">Jayamal shanuka</a>
+                                    <a href="shenalcv.html"><img src="img/shenal.jpg" class="developer-images">Shenal pelpola</a>
+                                    <a href="chamathcv.html"><img src="img/chamath.jpg" class="developer-images">Chamath peiris</a>
+                                    <a href="chamikacv.html"><img src="img/chamika.jpg" class="developer-images">chamika perera</a>
+                                </div>
+                        </div>
+                        <li><a href="sitemap.html"><i class="fa fa-image" style="padding-right: 7px"></i>site map</a></li>
+                    </ul>
+            </div>
+    </header>
+
+        <section class="containerS content-section">
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">AYO Book Pro</span>
+                    <img class="shop-item-image" src="img/AyobookPro.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$1012.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Smart Wall</span>
+                    <img class="shop-item-image" src="img/SmartWall.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$514.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">AYO +1</span>
+                    <img class="shop-item-image" src="img/AyoMobilePro.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$799.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">AYO Tab A1</span>
+                    <img class="shop-item-image" src="img/ShoppingImg.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$919.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Smart Mug</span>
+                    <img class="shop-item-image" src="img/AyoMug.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$219.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">AYO Watch G+</span>
+                    <img class="shop-item-image" src="img/watch.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$336.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="containerS content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+
+        <h3>Please fill your details</h3>
+    <div>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+  
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your First name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your Last name..">
+
+    <label for="cnumber">Credit/Debit cart number</label>
+    <input type="number" id="cnumber" name="cnumber" placeholder="Your card number.. ">
+
+    
+
+            <button class="btn btn-primary btn-purchase" type="submit" value="submit">PURCHASE</button>
+        </section>
+
+            <div class="secondary-nav">
+                <a href="index.html"><div class="my-blocks"><i class="fa fa-fw fa-home" style="font-size:50px" ></i><br>home</div></a>
+                <a href="main.html#about"><div class="my-blocks"><i class="fa fa-user" style="font-size:50px" ></i><br>about</div></a>
+                <a href="support.html"><div class="my-blocks"><i class="fa fa-fw fa-envelope" style="font-size:50px" ></i><br>contact</div></a>
+                <a href="gallery.html"><div class="my-blocks"><i class="fa fa-image" style="font-size:50px" ></i><br>galary</div></a>
+                <a href="storeAyo.html"><div class="my-blocks"><i class="fa fa-user" style="font-size:50px"></i><br>products</div></a>
+                <a href="Quiz.html"><div class="my-blocks"><i class="fa fa-edit" style="font-size:50px"></i><br>quiz</div></a>
+            </div>
+            <footer class="footer-distributed">
+                <div class="footer-left">
+                        <p class="footer-links">
+                                <a href="index.html">Home</a>
+                                ·
+                                <a href="main.html#about">About</a>
+                                ·
+                                <a href="storeAyo.html">Products</a>
+                                ·
+                                <a href="support.html">Support</a>
+                                ·
+                                <a href="Quiz.html">Quiz</a>
+                                ·
+                                <a href="gallery.html">Gallary</a>
+                        </p>
+                        <p class="footer-company-name">AYO &copy; 2019</p>
+                </div>
+                <div class="footer-center">
+                        <div>
+                            <i class="fa fa-map-marker"></i>
+                            <p><span>AYO OS</span>West Tower, <br>World trade Center,<br> Colombo 01,<br> Sri lanka.</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-phone"></i>
+                            <p>+94 721974323</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-envelope"></i>
+                            <p><a href ="mailto: ayo.os.lk@gmail.com">ayo.os.lk@gmail.com</a></p>
+                        </div>
+                </div>
+                <div class="footer-right">
+                        <p class="footer-company-about">
+                                <span>About the company</span>
+                                AYO OS is a mobile operating system developed by AYO TEAM. It is based on a modified version of the Linux kernel and other open
+                                source software, and is designed primarily for touchscreen mobile devices such as smartphones and tablets
+                        </p>
+                        <div class="footer-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                     </div>
+                </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>

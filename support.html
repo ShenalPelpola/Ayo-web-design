@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Support us</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- The Modal -->
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" id="modal-content">
+            <form  method="post" name="signUpForm" onsubmit="return validateForm()" id="commentForm">
+                <h1 id="formHeading">Submit Comments</h1>
+                <img src="img/logo.png" width="100px" height="100px" class="sm">
+                <div class="cross" id="cross"> + </div>
+                    <div id="Error_div">There was a small problem sending your message.</div>
+                <fieldset>
+                    <legend><span class="number">1</span>your Basic Info</legend>
+                    <label for="name"> Name:</label>
+                    <input type="text" id="name" name="user_name"/>
+                    <div id="userNameValidation"></div>
+    
+                    <label for="mail">Email:</label>
+                    <input type="email" id="mail" name="user_email"/>
+                </fieldset>
+    
+                <legend><span class="number">2</span>your Ratings</legend>
+                <fieldset>
+                        <lable for="rating">Rating:</lable>
+                        <select id="rating" name="user_Rating">
+                            <option value="select option">select option</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Very Good">Very Good</option>
+                            <option value="Good">Good</option>
+                            <option value="Needs Improvement">Needs Improvement</option>
+                        </select>
+                        <div id="select_div"></div>
+                        <label for="comments">Comments:</label>
+                            <textarea id="comment" name="user_comments" value=""></textarea>
+                </fieldset>
+                <button type="submit" id="submit">submit</button>
+            </form>
+        </div>
+        <div id="after">
+            <img src="img/check.png" width="100px" height="100px" style="margin-left: 250px;">
+            <span id="thankH"> Thank you</span>
+            <div class="cross" id="newcross"> + </div>
+            <div id="thank">
+            </div>
+        </div>
+      
+      </div>
+      
+      <header class="main-header clearfix" id="main-header">
+        <div class="top">
+            <img id="logo" src="img/logo.png">
+            <form class="search">
+                <input type="text" name="search" placeholder="Search.." id="searchBox"> 
+            </form>
+        </div>
+        <div class="container" id="container">
+            <ul class="main-nav">
+                <li><a href="index.html" id="home"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a href="main.html#about"><i class="fa fa-user" style="padding-right: 7px"></i>About</a></li>
+                <li><a href="storeAyo.html"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Products</a></li>
+                <li><a href="support.html"><i class="fa fa-fw fa-envelope" style="padding-right: 7px"></i>Support</a></li>
+                <li><a href="gallery.html"><i class="fa fa-image" style="padding-right: 7px"></i>Gallary</a></li>
+                <li><a href="Quiz.html"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Quiz</a></li>
+                <div class="dropdown">
+                        <button class="dropbtn" id="dev"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Developers</button>
+                        <div class="dropdown-content">
+                        <a href="jayamalcv.html"><img src="img/AwesomeMe.jpg" class="developer-images">Jayamal shanuka</a>
+                        <a href="shenalcv.html"><img src="img/shenal.jpg" class="developer-images">Shenal pelpola</a>
+                        <a href="chamathcv.html"><img src="img/chamath.jpg" class="developer-images">Chamath peiris</a>
+                        <a href="chamikacv.html"><img src="img/chamika.jpg" class="developer-images">chamika perera</a>
+                        </div>
+                </div>
+                <li><a href="sitemap.html"><i class="fa fa-image" style="padding-right: 7px"></i>site map</a></li>
+            </ul>
+        </div>
+    </header>
+        <div class="support-container clearfix">
+            <h1 id="support-heading">Customer Support</h1>
+            <div class="support-content">
+                    <h4 id="issues-heading">Having issues?</h4>
+                    Here in Ayo we ensure our customers gets the best and the most quality products while
+                    ensuring their private information and details. We you have any issue with our current
+                    product please do not hesitate to contact us to our given email or use the submit form.
+                    It can be delivery delays,product equality or any other issue.
+                    </br></br>
+                    please don't forget give your feedback about our site.
+            </div>
+
+            <div class="bug-reports">
+                    <h4 id="bug-heading">Report a bug</h4>
+                    Traditionally, bugs, client feedback, and change requests are discussed in lengthy
+                     real-time meetings which would then kick off the next web development phase that will
+                      address the issues. But this sequential lather-rinse-repeat workflow is slow: One of
+                       these iterations is barely doable within a timeframe faster than a week because bug
+                        reports have to be processed, organized, documented with screenshots, decided upon,
+                         and then delegated to the appropriate people.
+            
+
+            </div>
+        </div>
+        <button class="feedback" id="feedback">Your feedback</button>
+        
+
+        <div class="contact-us clearfix">
+            <h1 id="contact-heading">Contact us</h1>
+            <div class="manual-contacts">
+                <h4 class="manual-heading">Our store</h4>
+                <p>AYO OS<br>West Tower,
+                    <br>World trade Center<br> Colombo 01,<br> Sri lanka.
+                   Tel: 123-456-7890</p>
+                <h4 class="manual-heading">Opening hours </h4>
+                <p>Mon-Fri:7am - 10pm</br>
+                   Saturday:8am - 10pm<br>
+                   Sunday: 8am - 11pm</p>
+                <h4 class="manual-heading">Mobile details </h4>
+                <p><i class="fa fa-phone"></i>Tel: +94 721974323</p>  
+            </div>
+            <div class="social-media">
+                <h4 class="manual-heading">Follow us on:</h4>
+                <a href="https://www.facebook.com/AYO-os-426049091525531/?modal=admin_todo_tour"><i class="fab fa-facebook" style="margin-right: 30px;margin-left: 10px;"></i></a>
+                <a href=""><i class="fab fa-twitter" style="margin-right: 30px"></i></a>
+                <a href="https://www.instagram.com/ayo_os1.0/?hl=en"><i class="fab fa-instagram" style="margin-right: 30px"></i></a>
+                <a href=""><i class="fab fa-snapchat" style="margin-right: 30px"></i></a>
+            </div>
+        </div>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.2123361364474!2d79.85766871472022!3d6.865139095038932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25ba4e617b3d9%3A0xd5a3b0418f1cf497!2sInformatics+Institute+of+Technology+(IIT)!5e0!3m2!1sen!2slk!4v1552684293148" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        </div>
+        <div class="secondary-nav">
+            <a href="index.html"><div class="my-blocks"><i class="fa fa-fw fa-home" style="font-size:50px" ></i><br>home</div></a>
+            <a href="main.html#about"><div class="my-blocks"><i class="fa fa-user" style="font-size:50px" ></i><br>about</div></a>
+            <a href="support.html"><div class="my-blocks"><i class="fa fa-fw fa-envelope" style="font-size:50px" ></i><br>contact</div></a>
+            <a href="gallery.html"><div class="my-blocks"><i class="fa fa-image" style="font-size:50px" ></i><br>galary</div></a>
+            <a href="storeAyo.html"><div class="my-blocks"><i class="fa fa-user" style="font-size:50px"></i><br>products</div></a>
+            <a href="Quiz.html"><div class="my-blocks"><i class="fa fa-edit" style="font-size:50px"></i><br>quiz</div></a>
+    </div>
+    <footer class="footer-distributed">
+            <div class="footer-left">
+                    <p class="footer-links">
+                            <a href="index.html">Home</a>
+                            ·
+                            <a href="main.html#about">About</a>
+                            ·
+                            <a href="storeAyo.html">Products</a>
+                            ·
+                            <a href="support.html">Support</a>
+                            ·
+                            <a href="Quiz.html">Quiz</a>
+                            ·
+                            <a href="gallery.html">Gallary</a>
+                    </p>
+                    <p class="footer-company-name">AYO &copy; 2019</p>
+            </div>
+            <div class="footer-center">
+                    <div>
+                            <i class="fa fa-map-marker"></i>
+                            <p><span>AYO OS</span>West Tower, <br>World trade Center,<br> Colombo 01,<br> Sri lanka.</p>
+                    </div>
+                    <div>
+                            <i class="fa fa-phone"></i>
+                            <p>+94 721974323</p>
+                    </div>
+                    <div>
+                            <i class="fa fa-envelope"></i>
+                            <p><a href ="mailto: ayo.os.lk@gmail.com">ayo.os.lk@gmail.com</a></p>
+                    </div>
+            </div>
+            <div class="footer-right">
+                    <p class="footer-company-about">
+                            <span>About the company</span>
+                            AYO OS is a mobile operating system developed by AYO TEAM. It is based on a modified version of the Linux kernel and other open
+                            source software, and is designed primarily for touchscreen mobile devices such as smartphones and tablets
+                    </p>
+                    <div class="footer-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                 </div>
+            </div>
+    </footer>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="javascript/support.js"></script>
+    </body>
+</html>

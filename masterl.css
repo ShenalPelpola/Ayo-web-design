@@ -1,0 +1,52 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(img/hero.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    overflow: visible;
+    background: #000 url('img/loader.gif') no-repeat center center;
+}
+
+h1,h4 {
+    color: #fff;
+    font-family: Poppins;
+    text-align: center;
+
+
+
+}
+
+#content{
+    background: rgba(0,0,0,0.6);
+    width: 25%;
+    height: 100%;
+    float: right;
+
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+p{
+        text-align: center;
+        padding-top: 400px;
+        padding-left: 330px;
+        color: white;
+    }
+
+
+
+

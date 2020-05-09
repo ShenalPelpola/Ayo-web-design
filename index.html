@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ayo loader</title>
+    <link rel="stylesheet" href="masterl.css">
+</head>
+<body>
+    <div id="loader"></div>
+    <div id="content">
+        <h1>DEVELOPED BY</h1>
+        <img src="img/boy.png" width="100"><h4>Shenal Palpola</h4>
+        <img src="img/boy1.png" width="100"><h4>Jayamal Shanuka</h4>
+        <img src="img/man.png" width="100"><h4>Chamika Chiran</h4>
+        <img src="img/boy2.png" width="100"><h4>Chamath Peris</h4>
+
+    </div>
+    <script type="text/javascript">
+        
+        var loader;
+        function loadNow(opacity) {
+            if(opacity <= 0) {
+                displayContent();
+            }
+            else {
+                loader.style.opacity = opacity;
+                window.setTimeout(function() {
+                    loadNow(opacity - 0.03)
+                }, 100);
+            }
+        }
+        
+        function displayContent() {
+            loader.style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            loader = document.getElementById('loader');
+            loadNow(1);
+        });
+        
+    </script>
+
+<script type="text/javascript">   
+    function Redirect() 
+    {  
+        window.location="main.html"; 
+    } 
+    document.write("<p>You will be redirected to the home page in 5 seconds</p>"); 
+    setTimeout('Redirect()', 5000);   
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

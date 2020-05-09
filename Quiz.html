@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta choiceArset="utf-8" />
+    <title>Quiz</title>
+
+    <script type="text/javascript">
+		
+        //allowable time for test in minutes 
+        var time = 4;
+        var now = 0;
+        var distance = 0;
+        var position = 0;
+        var correct = 0;
+        var marks = 0;
+        var choice = "Not answered"
+        var test, test_condition, question, choice, choices, choiceA, choiceB, choiceC, choiceD, colour;
+        var userChoice = ["E", "E", "E", "E", "E", "E", "E", "E", "E", "E"];
+        var questions = [
+            ["1. Cache memory is intended to provide memory access?", "Fastest", "Slow", "Very Slow", "Comparatively Fast", "A"],
+            ["2. Primary element used for data storage is said to be?", "Monitor", "Main storage", "secondary storage", "Keyboard", "C"],
+            ["3. Multiprogramming systems?", "Are easier to develop than single programming systems", "Execute each job faster", " Execute more jobs in the same time period", "Are used only one large mainframe computers.", "B"],
+            ["4. Error detection and response clears the:", "Program", " Data", " Information", "Error Condition", "D"],
+            ["5. Program execution services are used to:", " Control Program", " Delete Program", "Execute Program", "Update Programs", "C"],
+            ["6. Concept of process for structure of operating system is", "Fundamental", "Effective", "Old", "Modern", "A"],
+            ["7. To run a program this Setup involves an amount of?", " Money", " Resources", "Users", "Time", "D"],
+            ["8. A user who have no access to data is called", "Authorized User", " Restricted User", "Volatile User", "Unauthorized User", "D"],
+            ["9. Access control in operating system is just another name for", "Data manipulation", "Files Access", "Compartmentalization of resources", "Data and Resources Access", "C"],
+            ["10.In Kernel Signals are used to notify a certain", "Decisions", "Faults", "Strategies", "Procedures", "B"]
+        ];
+        var colour = ["red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "brown", "brown", "brown", "brown", "brown", "blue", "blue", "blue", "blue", "blue", "yellow", "yellow", "yellow", "yellow", " yellow", "green", "green", "green", "green", "green"]
+
+        function questionProvider() {
+            document.getElementById("answer").style.display = "none";
+            test = document.getElementById("test");
+            if (position >= questions.length) {
+                document.getElementById("test").style.backgroundColor = colour[marks + 10];
+                test.innerHTML = "<h2>Out of " + questions.length + " questions </h2>";
+                test.innerHTML += "<h3>correct answers : " + correct + " </h3>";
+                test.innerHTML += "<h3>wrong answers : " + (2 * correct - marks) + " </h3>";
+                test.innerHTML += "<h3>No answers : " + (questions.length + marks - 3 * correct) + "</h3>";
+                test.innerHTML += "<h2>You got " + marks + " Marks</h2>";
+                test.innerHTML += "<button class = button onclick='showPaper()'>See Your Paper</button>";
+                document.getElementById("test_condition").innerHTML = "Test completed";
+                // resets the variable to allow users to restart the test 
+                //position = 0; 
+                //correct = 0; 
+                // stops rest of questionProvider function running when test is completed 
+                return false;
+            }
+            document.getElementById("test_condition").innerHTML = "Question " + (position + 1) + " of " + questions.length;
+            question = questions[position][0];
+            choiceA = questions[position][1];
+            choiceB = questions[position][2];
+            choiceC = questions[position][3];
+            choiceD = questions[position][4];
+
+            test.innerHTML = "<h3>" + question + "</h3>";
+            // the += appends to the data we started on the line above 
+            test.innerHTML += "<input type='radio' name='choices' value='A'> " + choiceA + "<br>";
+            test.innerHTML += "<input type='radio' name='choices' value='B'> " + choiceB + "<br>";
+            test.innerHTML += "<input type='radio' name='choices' value='C'> " + choiceC + "<br>";
+            test.innerHTML += "<input type='radio' name='choices' value='D'> " + choiceD + "<br><br>";
+
+            test.innerHTML += "<button class = button onclick='answerChecker()'>Next Question</button>";
+        }
+
+        function answerChecker() {
+            // use getElementsByName because we have an array which it will loop through 
+            choices = document.getElementsByName("choices");
+            for (var i = 0; i < choices.length; i++) {
+                if (choices[i].checked) {
+                    choice = choices[i].value;
+                    userChoice[position] = choice;
+                }
+            }
+            // checks if answer matches the correct choice 
+            if (choice == questions[position][5]) {
+                //each time there is a correct answer this value increases 
+                correct++;
+                marks = marks + 2;
+
+            } else if (choice != "Not answered") {
+                marks = marks - 1
+            }
+            choice = "Not answered"
+                // choiceAnges position of which choiceAracter user is on 
+            position++;
+
+            // then the questionProvider function runs again to go to next question 
+            questionProvider();
+        }
+
+        function timeOver() {
+            if (position < 10) {
+                position = 10;
+                alert('Time Out');
+                questionProvider();
+            }
+        }
+        var j = 0;
+
+        function showPaper() {
+            document.getElementById("answer").style.display = "block";
+            document.getElementById("topic").style.display = "none";
+            answer.innerHTML = "<h3>" + questions[j][0] + "</h3>";
+            answer.innerHTML += "<input type='radio' name='choices' value='A' > " + questions[j][1] + "<br>";
+            answer.innerHTML += "<input type='radio' name='choices' value='B' > " + questions[j][2] + "<br>";
+            answer.innerHTML += "<input type='radio' name='choices' value='C' > " + questions[j][3] + "<br>";
+            answer.innerHTML += "<input type='radio' name='choices' value='D' > " + questions[j][4] + "<br><br>";
+            if (userChoice[j] != 'E') {
+                answer.innerHTML += "<p>your answer is " + userChoice[j] + "</p";
+            }
+            if (userChoice[j] == 'E') {
+                answer.innerHTML += "<p><font color='red'>Not answered. Correct answer is " + questions[j][5] + "</font></p";
+            } else if (userChoice[j] != questions[j][5]) {
+                answer.innerHTML += "<p><font color='red'>It is wrong. Correct answer is " + questions[j][5] + "</font></p";
+            }
+            if (userChoice[j] == questions[j][5]) {
+                answer.innerHTML += "<p>It is correct</p";
+            }
+            answer.innerHTML += "<button class=button onclick='showPaper()'>Next</button>";
+            j++;
+        }
+
+        function countDown() {
+            // Set the time we're counting down to 
+            var countDownTime = new Date().getTime() + time * 60 * 1000;
+
+            // Update the count down every 1 second 
+            var x = setInterval(function() {
+
+                // Get todays date and time 
+                now = new Date().getTime();
+
+                // Find the distance between now an the count down date 
+                distance = countDownTime - now;
+
+                // Time calculations for days, hours, minutes and seconds     
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result      
+                if (distance < 0) {
+                    minutes = 0;
+                    seconds = 0;
+                }
+
+                if (position == 10) {
+                    myStopFunction();
+                }
+
+                document.getElementById("min").innerHTML = minutes;
+                document.getElementById("sec").innerHTML = seconds;
+
+            }, 1000);
+
+        }
+
+        function myStopFunction() {
+            clearInterval(x);
+        }
+
+        function displayWatch(){
+            document.getElementById("clockdiv").style.display="inline-block";
+        }
+
+    </script>
+
+</head>
+
+<body id="quiz-body">
+    <div class="top">
+        <img id="logo" src="img/logo.png">
+        <form class="search">
+            <input type="text" name="search" placeholder="Search.." id="searchBox"> 
+            </form>
+        </div>
+        <div class="container" id="container">
+            <ul class="main-nav">
+                <li><a href="index.html" id="home"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a href="main.html#about"><i class="fa fa-user" style="padding-right: 7px"></i>About</a></li>
+                <li><a href="storeAyo.html"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Products</a></li>
+                <li><a href="support.html"><i class="fa fa-fw fa-envelope" style="padding-right: 7px"></i>Support</a></li>
+                <li><a href="gallery.html"><i class="fa fa-image" style="padding-right: 7px"></i>Gallary</a></li>
+                <li><a href="Quiz.html"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Quiz</a></li>
+                <div class="dropdown">
+                        <button class="dropbtn" id="dev"><i class="fa fa-edit" id="last" style="padding-right: 7px"></i>Developers</button>
+                        <div class="dropdown-content">
+                        <a href="jayamalcv.html"><img src="img/AwesomeMe.jpg" class="developer-images">Jayamal shanuka</a>
+                        <a href="shenalcv.html"><img src="img/shenal.jpg" class="developer-images">Shenal pelpola</a>
+                        <a href="chamathcv.html"><img src="img/chamath.jpg" class="developer-images">Chamath peiris</a>
+                        <a href="chamikacv.html"><img src="img/chamika.jpg" class="developer-images">chamika perera</a>
+                        </div>
+                </div>
+                <li><a href="sitemap.html"><i class="fa fa-image" style="padding-right: 7px"></i>site map</a></li>
+            </ul>
+        </div>
+	<div class="head">
+		<h1>Welcome to Quiz session</h1>
+	</div>
+	
+	
+    <div id="topic" style="margin-left:20%; margin-top:5%;">
+        <h2> You have 4 minutes to answer 10 questions </h2>
+        <p> 2 marks for each correct answer, -1 marks for each wrong answer and no marks for unanswered questions </p>
+        <button class="button button1"  onclick="questionProvider();setTimeout(timeOver, time*60*1000);countDown();displayWatch();">Begin Test</button>
+    </div>
+    <div id="clockdiv">
+        <div>
+            <span class="minutes" id="min"></span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span class="seconds" id="sec"></span>
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+	<div style="margin-left:20%;">
+    <div id="test_condition"></div>
+    <div id="test"></div>
+    <div id="answer"></div>
+    </div>
+    
+    <div class="secondary-nav">
+        <a href="index.html"><div class="my-blocks"><i class="fa fa-fw fa-home" style="font-size:50px" ></i><br>home</div></a>
+        <a href="main.html#about"><div class="my-blocks"><i class="fa fa-user" style="font-size:50px" ></i><br>about</div></a>
+        <a href="support.html"><div class="my-blocks"><i class="fa fa-fw fa-envelope" style="font-size:50px" ></i><br>contact</div></a>
+        <a href="gallery.html"><div class="my-blocks"><i class="fa fa-image" style="font-size:50px" ></i><br>galary</div></a>
+        <a href="storeAyo.html"><div class="my-blocks"><i class="fa fa-user" style="font-size:50px"></i><br>products</div></a>
+        <a href="Quiz.html"><div class="my-blocks"><i class="fa fa-edit" style="font-size:50px"></i><br>quiz</div></a>
+</div>
+<footer class="footer-distributed">
+        <div class="footer-left">
+                <p class="footer-links">
+                        <a href="index.html">Home</a>
+                        ·
+                        <a href="main.html#about">About</a>
+                        ·
+                        <a href="storeAyo.html">Products</a>
+                        ·
+                        <a href="support.html">Support</a>
+                        ·
+                        <a href="Quiz.html">Quiz</a>
+                        ·
+                        <a href="gallery.html">Gallary</a>
+                </p>
+                <p class="footer-company-name">AYO &copy; 2019</p>
+        </div>
+        <div class="footer-center">
+                <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>AYO OS</span>West Tower, <br>World trade Center,<br> Colombo 01,<br> Sri lanka.</p>
+                </div>
+                <div>
+                        <i class="fa fa-phone"></i>
+                        <p>+94 721974323</p>
+                </div>
+                <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href ="mailto: ayo.os.lk@gmail.com">ayo.os.lk@gmail.com</a></p>
+                </div>
+        </div>
+        <div class="footer-right">
+                <p class="footer-company-about">
+                        <span>About the company</span>
+                        AYO OS is a mobile operating system developed by AYO TEAM. It is based on a modified version of the Linux kernel and other open
+                        source software, and is designed primarily for touchscreen mobile devices such as smartphones and tablets
+                </p>
+                <div class="footer-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+             </div>
+        </div>
+</footer>
+</body>
+
+</html>
